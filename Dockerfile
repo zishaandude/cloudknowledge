@@ -1,8 +1,7 @@
 FROM centos:latest  
 # Use latest CentOS base image
 
-RUN yum install -y httpd zip unzip  
-# Install Apache web server (httpd), zip, and unzip tools
+# RUN yum install -y httpd zip unzip  Install Apache web server (httpd), zip, and unzip tools
 
 ADD https://github.com/Md-Iqbal/Hotel-website.git /var/www/html/  
 # Download website template ZIP file into web root directory
@@ -10,13 +9,12 @@ ADD https://github.com/Md-Iqbal/Hotel-website.git /var/www/html/
 WORKDIR /var/www/html  
 # Set working directory
 
-RUN unzip kindle.zip  
-# Extract the ZIP file
+# RUN unzip kindle.zip   Extract the ZIP file
 
-RUN cp -rvf Hotel-website.git/* .  
+RUN cp -rvf HHotel-website/* .  
 # Copy extracted website files into current directory
 
-RUN rm -rf Hotel-website.git
+RUN rm -rf Hotel-website
 # Remove unnecessary files and folders
 
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]  
